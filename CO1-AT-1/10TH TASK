@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int journeys;
+    double doubleTotal = 0.0;
+    long long paiseTotal = 0;
+
+    cout << "Enter number of journeys: ";
+    cin >> journeys;
+
+    if (!cin || journeys < 0) {
+        cout << "Invalid input" << endl;
+        return 1;
+    }
+
+    for (int i = 0; i < journeys; i++) {
+        doubleTotal += 10.10;
+        paiseTotal += 1010;
+    }
+
+    cout << fixed << setprecision(2);
+    cout << "Double total: Rs." << doubleTotal << endl;
+    cout << "Integer paise total: Rs."
+         << paiseTotal / 100.0 << endl;
+
+    return 0;
+}
