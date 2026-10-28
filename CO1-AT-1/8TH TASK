@@ -1,0 +1,29 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main() {
+    int hour;
+    long long balancePaise;
+
+    cout << "Enter hour (0-23): ";
+
+    if (!(cin >> hour) || hour < 0 || hour > 23) {
+        cout << "Invalid hour" << endl;
+        return 1;
+    }
+
+    cout << "Enter balance in paise: ";
+
+    if (!(cin >> balancePaise) || balancePaise < 0) {
+        cout << "Invalid balance" << endl;
+        return 1;
+    }
+
+    cout << fixed << setprecision(2);
+    cout << "Hour: " << hour << endl;
+    cout << "Balance: Rs."
+         << balancePaise / 100.0 << endl;
+
+    return 0;
+}
