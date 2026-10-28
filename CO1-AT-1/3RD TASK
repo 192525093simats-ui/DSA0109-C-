@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int balancePaise = 10000;
+    int farePaise = 3000;
+    long long totalPaise = 0;
+    bool eligible = true;
+
+    if (eligible && balancePaise >= farePaise) {
+        balancePaise -= farePaise;
+        totalPaise += farePaise;
+    }
+
+    cout << "Remaining balance: Rs."
+         << balancePaise / 100.0 << endl;
+
+    cout << "Total fare: Rs."
+         << totalPaise / 100.0 << endl;
+
+    return 0;
+}
