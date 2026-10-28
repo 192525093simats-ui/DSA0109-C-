@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class SmartCard {
+private:
+    long long balancePaise;
+
+public:
+    SmartCard(long long balance) {
+        balancePaise = balance;
+    }
+
+    bool travel(long long farePaise) {
+        if (balancePaise - farePaise >= 5000) {
+            balancePaise -= farePaise;
+            return true;
+        }
+
+        return false;
+    }
+
+    void displayBalance() {
+        cout << "Balance: Rs."
+             << balancePaise / 100.0 << endl;
+    }
+};
+
+int main() {
+    SmartCard card(10000);
+
+    if (card.travel(3000)) {
+        cout << "Journey successful" << endl;
+    } else {
+        cout << "Journey denied" << endl;
+    }
+
+    card.displayBalance();
+    return 0;
+}
