@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+enum class Zone { Inner, Middle, Outer };
+
+long long calculateFare(Zone zone, int hour) {
+    long long baseFare;
+
+    switch (zone) {
+        case Zone::Inner:
+            baseFare = 1000;
+            break;
+        case Zone::Middle:
+            baseFare = 2000;
+            break;
+        case Zone::Outer:
+            baseFare = 3000;
+            break;
+        default:
+            return -1;
+    }
+
+    bool peak = (hour >= 8 && hour < 10) ||
+                (hour >= 17 && hour < 20);
+
+    if (peak) {
+        baseFare += baseFare * 20 / 100;
+    }
+
+    return baseFare;
+}
+
+int main() {
+    int hours[] = {8, 10, 17, 20};
+
+    for (int hour : hours) {
+        cout << "Hour " << hour << ": Rs."
+             << calculateFare(Zone::Inner, hour) / 100.0
+             << endl;
+    }
+
+    cout << "Unknown zone: "
+         << calculateFare(static_cast<Zone>(99), 12)
+         << endl;
+
+    return 0;
+}
