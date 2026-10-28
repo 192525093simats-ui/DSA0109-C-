@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+class SmartCard {
+private:
+    long long balancePaise;
+
+public:
+    SmartCard(long long initialBalance) {
+        balancePaise = initialBalance;
+    }
+
+    bool recharge(long long amountPaise) {
+        if (amountPaise <= 0) {
+            return false;
+        }
+
+        balancePaise += amountPaise;
+        return true;
+    }
+
+    bool payFare(long long farePaise) {
+        if (farePaise < 0 ||
+            balancePaise - farePaise < 5000) {
+            return false;
+        }
+
+        balancePaise -= farePaise;
+        return true;
+    }
+
+    void showBalance() {
+        cout << "Balance: Rs."
+             << balancePaise / 100.0 << endl;
+    }
+};
+
+int main() {
+    SmartCard card(10000);
+
+    card.showBalance();
+
+    if (card.payFare(2000)) {
+        cout << "Payment successful" << endl;
+    } else {
+        cout << "Payment denied" << endl;
+    }
+
+    card.showBalance();
+
+    if (card.recharge(5000)) {
+        cout << "Recharge successful" << endl;
+    }
+
+    card.showBalance();
+    return 0;
+}
