@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class SmartCard {
+public:
+    string cardNumber;
+    string ownerName;
+    int balancePaise;
+};
+
+class Journey {
+public:
+    string source;
+    string destination;
+    int farePaise;
+};
+
+int main() {
+    SmartCard card;
+    card.cardNumber = "SC101";
+    card.ownerName = "Jaswanth";
+    card.balancePaise = 10000;
+
+    Journey journey;
+    journey.source = "Inner";
+    journey.destination = "Outer";
+    journey.farePaise = 3000;
+
+    cout << "Card Number: " << card.cardNumber << endl;
+    cout << "Owner: " << card.ownerName << endl;
+    cout << "Balance: Rs." << card.balancePaise / 100.0 << endl;
+    cout << "Journey: " << journey.source << " to "
+         << journey.destination << endl;
+    cout << "Fare: Rs." << journey.farePaise / 100.0 << endl;
+
+    return 0;
+}
